@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TabsModule } from "ngx-tabs";
 
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -14,7 +15,8 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     FormsModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TabsModule
   ],
   exports: [
     AppRoutingModule,

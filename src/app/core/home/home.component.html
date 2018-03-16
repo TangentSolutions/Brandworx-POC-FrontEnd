@@ -9,7 +9,7 @@
             <div class="col-sm-12 form-group">
                 <label for="image">Image</label>
                 <!-- <input type="text" placeholder="" id="image" class="form-control" name="image" ngModel> -->
-                <input type="file" name="image" accept="image/*" multiple ngModel>
+                <input type="file" name="image" accept="image/*" id="file-input" multiple ngModel>
             </div>
         </div>
         <div class="row">
@@ -35,8 +35,7 @@
 <div class="col-sm-6 right-box" *ngIf="loading">
     <div class="col-sm-12">Loading matches</div>
 </div>
-<!-- <div class="col-sm-6 right-box" *ngIf="!loading && matchesFound"> -->
-<div class="col-sm-6 right-box">
+<div class="col-sm-6 right-box" *ngIf="!loading && matchesFound">
     <div class="col-sm-12">
         <div class="row">
             <span class="col-sm-12">
@@ -45,23 +44,33 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <ul class="list-group">
-                    <a class="list-group-item" style="..." *ngFor="let match of matches; let i = index">
-                        <div class="row">
-                            <span class="col-sm-4 image-block">
+                <tabset>
+                    <tab title="ALL">
+                        <ul class="list-group">
+                            <a class="list-group-item" style="..." *ngFor="let match of matches; let i = index">
+                                <div class="row">
+                                    <div class="col-sm-4 image-block">
 
-                            </span>
-                            <span class="col-sm-8 detail-block">
-                                <span class="store-name">
+                                    </div>
+                                    <div class="col-sm-8 detail-block">
+                                        <span class="store-name">
+                                            {{ match.name }}
+                                        </span>
+                                        <span class="distance-from">
+                    
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </ul>
+                    </tab>
+                    <tab title="PROBABILITY">
 
-                                </span>
-                            <span class="distance-from">
-            
-                                </span>
-                            </span>
-                        </div>
-                    </a>
-                </ul>
+                    </tab>
+                    <tab title="DISTANCE">
+
+                    </tab>
+                </tabset>
             </div>
         </div>
     </div>

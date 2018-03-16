@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class MatchesService {
-    private apiUrl = 'http://localhost:3001/matches/';
+    private apiUrl = 'http://52.178.178.111/api/outlet/';
 
     startedEditing = new Subject<number>();
 
