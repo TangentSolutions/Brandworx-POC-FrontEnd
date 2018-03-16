@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   needMatch:boolean = true;
   matchToFind: any = {};
   matches: any = [];
+  matchedItem: any = {};
 
   private subscription: Subscription;
 
@@ -45,64 +46,26 @@ export class HomeComponent implements OnInit {
       formData.append('images[]', fileValue)
     }
     var request = new XMLHttpRequest();
-    request.open('POST', 'http://52.178.178.111/api/outlet');
+    request.open('POST', 'http://52.178.178.111/outlet');
     var result = request.send(formData);
-
-    // function listMatches(response) {
-    //   debugger
-
-    //   let match = JSON.parse(response);
-
-    //   this.loading = false;
-    //   this.matchesFound = true;
-    //   form.reset();
-    // }
 
     var $ctrl = this;
 
-    let resp = [{
+    request.onreadystatechange = function() {
+      if (request.readyState === 4) {
+        // debugger
 
-      "name": 'Rawr',
-      "lat": 123.0,
-      "lon": 123.0,
-      "image": "https://www.mawmobile.co.za/Brandworx_RPM_Console/MAW_Report_ExportPhoto_View.aspx?FC=MAW_866&SC=S1&SI=1512278158304_Memory%20Goora",
-      "probability": 90
-    },
-    {
+      let match = JSON.parse(request.response);
 
-      "name": 'Rawr',
-      "lat": 123.0,
-      "lon": 123.0,
-      "image": "https://www.mawmobile.co.za/Brandworx_RPM_Console/MAW_Report_ExportPhoto_View.aspx?FC=MAW_866&SC=S1&SI=1512278158304_Memory%20Goora",
-      "probability": 90
-    }
- ];
-
-    $ctrl.matches = resp;
+      $ctrl.matchedItem = match;
+      // $ctrl.matches.push(match);
 
         $ctrl.loading = false;
         $ctrl.matchesFound = true;
         form.reset();
-
-    // request.onreadystatechange = function() {
-    //   if (request.readyState === 4) {
-    //     // listMatches(request.response);
-
-    //     debugger
-
-    //     console.log(request.response);
-    //   let match = JSON.parse(request.response);
-
-    //   $ctrl.matches.push(match);
-
-    //     $ctrl.loading = false;
-    //     $ctrl.matchesFound = true;
-    //     form.reset();
-    //   }
-
-      
-    // }
+      }
   }
+}
 
   onClear() {
     this.matchForm.reset();

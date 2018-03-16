@@ -7,15 +7,57 @@
 }
 
 .left-box {
-    border: 1px solid grey;
-    background-color: lightgray;
+    border: 1px solid #979797;
+    background-color: #F4F4F4;
     padding: 10px;
 }
 
 .right-box {
-    border: 1px solid grey;
-    background-color: lightgray;
+    border: 1px solid #979797;
+    background-color: #F4F4F4;
     padding: 10px;
+}
+
+.custom-btn {
+    background-color: #FFB700;
+    float: right;
+}
+
+.head-line {
+    font-size: 23px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.custom-label {
+    color: #7D7D7D;
+    font-size: 13px
+}
+
+.custom-label-result {
+    color: #4A4A4A;
+    font-size: 18px
+}
+
+.some-padding {
+    padding: 10px;
+}
+
+.custom-loading {
+    text-align: center;
+}
+
+.custom-load-text {
+    color: #4A4A4A;
+    font-size: 23px;
+}
+
+.custom-spinner {
+    max-width: 100px;
+}
+
+.custom-center {
+    text-align: center;
 }
 
 .list-group {}
@@ -30,6 +72,6 @@
 
 .distance-from {}
 
-.flex{
+.flex {
     flex-wrap: wrap;
 }

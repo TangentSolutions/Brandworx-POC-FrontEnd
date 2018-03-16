@@ -1,13 +1,13 @@
 <div class="left-box" [ngClass]="needMatch ? 'col-sm-6 center-box' : 'col-sm-6 left-side'">
     <form (ngSubmit)="onSubmit(matchForm)" #matchForm="ngForm">
         <div class="row">
-            <span class="col-sm-12">
-                Find a match:
+            <span class="col-sm-12 head-line">
+                Search for stores:
             </span>
         </div>
         <div class="row">
             <div class="col-sm-12 form-group">
-                <label for="image">Image</label>
+                <label for="image">Store Image</label>
                 <!-- <input type="text" placeholder="" id="image" class="form-control" name="image" ngModel> -->
                 <input type="file" name="image" accept="image/*" id="file-input" multiple ngModel>
             </div>
@@ -20,43 +20,52 @@
         </div>
         <div class="row">
             <div class="col-sm-12 form-group">
-                <label for="location">Geo Location - Lattitude</label>
+                <label for="location">GEO Location - Lattitude</label>
                 <input class="location-input" type="text" placeholder="Lattitude" id="locationLat" class="form-control" name="locationLat" ngModel>
             </div>
             <div class="col-sm-12 form-group">
-                <label for="location">Geo Location - Longitude</label>
+                <label for="location">GEO Location - Longitude</label>
                 <input class="location-input" type="text" placeholder="Longitude" id="locationLong" class="form-control" name="locationLong" ngModel>
             </div>
         </div>
-        <button class="btn btn-success" type="submit" [disabled]="!matchForm.valid">Find match</button>
-        <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+        <button class="btn btn-success custom-btn" type="submit" [disabled]="!matchForm.valid">SEARCH STORES</button>
     </form>
 </div>
-<div class="col-sm-6 right-box" *ngIf="loading">
-    <div class="col-sm-12">Loading matches</div>
+<div class="col-sm-6 right-box custom-center" *ngIf="loading">
+    <img class="custom-spinner" src="../../../assets/loading_apple.gif" alt="">
+    <div class="col-sm-12 custom-load-text">Searching for stores...</div>
 </div>
 <div class="col-sm-6 right-box" *ngIf="!loading && matchesFound">
     <div class="col-sm-12">
-        <div class="row">
-            <span class="col-sm-12">
-                Possible matches:
-            </span>
-        </div>
         <div class="flexRow">
             <div class="flex">
                 <ul class="list-group">
-                            <div class="col-xs-4 list-item"  *ngFor="let match of matches; let i = index">
-                                <div class="data-container">
+                    <div class="col-xs-12 list-item">
+                        <div class="data-container">
 
-                                    <div class="data">
-                                        <h6>Shop name</h6>
-                                        <p>{{ match.name }}</p>
-                                        <h6>GEO Location</h6>
-                                        <p>{{ match.lat + " , "+ match.lon }}</p>
+                            <div class="data some-padding">
+                                <div class="row">
+                                    <span class="col-sm-12 head-line">
+                                        Percentage match - {{ matchedItem.match }} %
+                                    </span>
+                                </div>
+                                <div class="row" *ngFor="let outlet of matchedItem.outlets; let i = index">
+                                    <div class="col-sm-6">
+                                        <h6 class="custom-label">Store name</h6>
+                                        <p class="custom-label-result">{{ outlet.name }}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h6 class="custom-label">GEO Location</h6>
+                                        <p class="custom-label-result">{{ outlet.latitude + " , "+ outlet.longitude }}</p>
                                     </div>
                                 </div>
+
+
+
                             </div>
-                        </ul>
+                        </div>
+                    </div>
+                </ul>
                 <!-- <tabset>
                     <tab title="ALL">
                          <ul class="list-group">
