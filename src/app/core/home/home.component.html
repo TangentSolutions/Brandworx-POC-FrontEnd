@@ -44,25 +44,51 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <tabset>
-                    <tab title="ALL">
-                        <ul class="list-group">
-                            <a class="list-group-item" style="..." *ngFor="let match of matches; let i = index">
-                                <div class="row">
-                                    <div class="col-sm-4 image-block">
+                <ul class="list-group">
+                            <div class="col-xs-12 list-item"  *ngFor="let match of matches; let i = index">
+                                <div class="col-xs-12 data-container">
 
+                                    <div class="data">
+                                        <h6>Shop name</h6>
+                                        <p>{{ match.name }}</p>
+                                        <h6>GEO Location</h6>
+                                        <p>{{ match.lat + " , "+ match.lon }}</p>
                                     </div>
-                                    <div class="col-sm-8 detail-block">
-                                        <span class="store-name">
-                                            {{ match.name }}
-                                        </span>
-                                        <span class="distance-from">
-                    
-                                        </span>
+
+                                    <div class="match-strength">
+                                        <h6>STRENTH</h6>
+                                        <p>{{match.probability}}%</p>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </ul>
+                <!-- <tabset>
+                    <tab title="ALL">
+                         <ul class="list-group">
+                            <a class="list-group-item"  *ngFor="let match of matches; let i = index">
+                                <div class="col-xs-12 list-item">
+                                <div class="col-xs-4 image-container">
+                                    <div class="image img-responsive"><img src="{{ match.image }}"/></div>
+                                </div>
+                                <div class="col-xs-8 data-container">
+
+                                    <div class="data">
+                                        <h6>Shop name</h6>
+                                        <p>{{ match.name }}</p>
+                                        <h6>GEO Location</h6>
+                                        <p>{{ match.lat + " , "+ match.lon }}</p>
+                                        <h6>Distance</h6>
+                                        <p>{{ match.distance }}</p>
+                                    </div>
+
+                                    <div class="match-strength">
+                                        <h6>STRENTH</h6>
+                                        <p>{{match.probability}}%</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </ul> 
                     </tab>
                     <tab title="PROBABILITY">
 
@@ -70,7 +96,7 @@
                     <tab title="DISTANCE">
 
                     </tab>
-                </tabset>
+                </tabset> -->
             </div>
         </div>
     </div>

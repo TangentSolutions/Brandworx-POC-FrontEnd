@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+.list-item {
+    background-color: #ffffff;
+    border: 1px solid #C8C8C8;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.list-item .match-strength {
+    background-color: #B8E986;
+    border-radius: 10px 0 0 10px;
+    bottom: 5px;
+    display: inline;
+    height: 55px;
+    position: absolute;
+    right: -1px;
+    text-align: center;
+    width: 60px;
+}
+
+.list-item .match-strength h6 {
+    font-size: 1rem;
+    margin: 0;
+    margin-top: 10px
+}
+
+.list-item .match-strength p {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.list-item .image-container {
+    margin: 0;
+    padding: 0;
+}
+
+.list-item .image {
+    background-color: aqua;
+    display: block;
+    min-height: 150px;
+}
+
+.list-item .data-container {
+    position: relative;
+}
+
+.list-item .data {
+    font-size: 1.5rem;
+}
+
+.list-item .data h6 {
+    font-size: 1rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}

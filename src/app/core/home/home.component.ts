@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    debugger
+
     this.loading = true;
     this.matchesFound = false;
 
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     }
     var request = new XMLHttpRequest();
     request.open('POST', 'http://52.178.178.111/api/outlet');
-    var result = request.send(formData)
+    var result = request.send(formData);
 
     // function listMatches(response) {
     //   debugger
@@ -58,29 +58,62 @@ export class HomeComponent implements OnInit {
     //   form.reset();
     // }
 
-    var $ctrl = this
+    var $ctrl = this;
 
-    request.onreadystatechange = function() {
-      if (request.readyState === 4) {
-        // listMatches(request.response);
+    let resp = [{
 
-        debugger
+      "name": 'Rawr',
+      "lat": 123.0,
+      "lon": 123.0,
+      "image": "https://www.mawmobile.co.za/Brandworx_RPM_Console/MAW_Report_ExportPhoto_View.aspx?FC=MAW_866&SC=S1&SI=1512278158304_Memory%20Goora",
+      "probability": 90
+    },
+    {
 
-      let match = JSON.parse(request.response);
+      "name": 'Rawr',
+      "lat": 123.0,
+      "lon": 123.0,
+      "image": "https://www.mawmobile.co.za/Brandworx_RPM_Console/MAW_Report_ExportPhoto_View.aspx?FC=MAW_866&SC=S1&SI=1512278158304_Memory%20Goora",
+      "probability": 90
+    }
+ ];
 
-      $ctrl.matches.push(match);
+    $ctrl.matches = resp;
 
         $ctrl.loading = false;
         $ctrl.matchesFound = true;
         form.reset();
-      }
+
+    // request.onreadystatechange = function() {
+    //   if (request.readyState === 4) {
+    //     // listMatches(request.response);
+
+    //     debugger
+
+    //     console.log(request.response);
+    //   let match = JSON.parse(request.response);
+
+    //   $ctrl.matches.push(match);
+
+    //     $ctrl.loading = false;
+    //     $ctrl.matchesFound = true;
+    //     form.reset();
+    //   }
 
       
-    }
+    // }
   }
 
   onClear() {
     this.matchForm.reset();
+  }
+
+  calculateDistance(lat1:number,lat2:number,long1:number,long2:number){
+    let p = 0.017453292519943295;    // Math.PI / 180
+    let c = Math.cos;
+    let a = 0.5 - c((lat1-lat2) * p) / 2 + c(lat2 * p) *c((lat1) * p) * (1 - c(((long1- long2) * p))) / 2;
+    let dis = (12742 * Math.asin(Math.sqrt(a))); // 2 * R; R = 6371 km
+    return dis;
   }
 
 }
