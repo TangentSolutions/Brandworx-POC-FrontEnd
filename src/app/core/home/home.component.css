@@ -1,0 +1,31 @@
+.location-input {
+    max-width: 50% !important;
+}
+
+.center-box {
+    /* background-color: black; */
+}
+
+.left-box {
+    border: 1px solid grey;
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.right-box {
+    border: 1px solid grey;
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.list-group {}
+
+.list-group-item {}
+
+.detail-block {}
+
+.image-block {}
+
+.store-name {}
+
+.distance-from {}

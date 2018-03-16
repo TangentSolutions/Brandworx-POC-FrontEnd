@@ -1,0 +1,68 @@
+<div class="left-box" [ngClass]="needMatch ? 'col-sm-6 center-box' : 'col-sm-6 left-side'">
+    <form (ngSubmit)="onSubmit(matchForm)" #matchForm="ngForm">
+        <div class="row">
+            <span class="col-sm-12">
+                Find a match:
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                <label for="image">Image</label>
+                <!-- <input type="text" placeholder="" id="image" class="form-control" name="image" ngModel> -->
+                <input type="file" name="image" accept="image/*" multiple ngModel>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                <label for="store">Store Name</label>
+                <input type="text" placeholder="Store name" id="store" class="form-control" name="store" ngModel>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                <label for="location">Geo Location - Lattitude</label>
+                <input class="location-input" type="text" placeholder="Lattitude" id="locationLat" class="form-control" name="locationLat" ngModel>
+            </div>
+            <div class="col-sm-12 form-group">
+                <label for="location">Geo Location - Longitude</label>
+                <input class="location-input" type="text" placeholder="Longitude" id="locationLong" class="form-control" name="locationLong" ngModel>
+            </div>
+        </div>
+        <button class="btn btn-success" type="submit" [disabled]="!matchForm.valid">Find match</button>
+        <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+    </form>
+</div>
+<div class="col-sm-6 right-box" *ngIf="loading">
+    <div class="col-sm-12">Loading matches</div>
+</div>
+<!-- <div class="col-sm-6 right-box" *ngIf="!loading && matchesFound"> -->
+<div class="col-sm-6 right-box">
+    <div class="col-sm-12">
+        <div class="row">
+            <span class="col-sm-12">
+                Possible matches:
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="list-group">
+                    <a class="list-group-item" style="..." *ngFor="let match of matches; let i = index">
+                        <div class="row">
+                            <span class="col-sm-4 image-block">
+
+                            </span>
+                            <span class="col-sm-8 detail-block">
+                                <span class="store-name">
+
+                                </span>
+                            <span class="distance-from">
+            
+                                </span>
+                            </span>
+                        </div>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
