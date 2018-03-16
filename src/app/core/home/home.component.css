@@ -20,9 +20,7 @@
 
 .list-group {}
 
-.list-group-item {
-    height: 100%;
-}
+.list-group-item {}
 
 .detail-block {}
 
@@ -31,3 +29,7 @@
 .store-name {}
 
 .distance-from {}
+
+.flex{
+    flex-wrap: wrap;
+}

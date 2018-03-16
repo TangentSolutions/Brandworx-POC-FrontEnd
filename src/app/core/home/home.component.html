@@ -42,22 +42,17 @@
                 Possible matches:
             </span>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
+        <div class="flexRow">
+            <div class="flex">
                 <ul class="list-group">
-                            <div class="col-xs-12 list-item"  *ngFor="let match of matches; let i = index">
-                                <div class="col-xs-12 data-container">
+                            <div class="col-xs-4 list-item"  *ngFor="let match of matches; let i = index">
+                                <div class="data-container">
 
                                     <div class="data">
                                         <h6>Shop name</h6>
                                         <p>{{ match.name }}</p>
                                         <h6>GEO Location</h6>
                                         <p>{{ match.lat + " , "+ match.lon }}</p>
-                                    </div>
-
-                                    <div class="match-strength">
-                                        <h6>STRENTH</h6>
-                                        <p>{{match.probability}}%</p>
                                     </div>
                                 </div>
                             </div>
